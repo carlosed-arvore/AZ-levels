@@ -1,6 +1,10 @@
+# Cross-version deps: works on Python 3.11 and 3.13+
 streamlit==1.37.0
-pandas==2.2.2
-numpy==1.26.4
+# NumPy / pandas split by interpreter version to avoid slow builds on 3.13
+numpy==1.26.4 ; python_version < "3.13"
+numpy==2.1.1  ; python_version >= "3.13"
+pandas==2.2.2 ; python_version < "3.13"
+pandas==2.3.0 ; python_version >= "3.13"
 PyPDF2==3.0.1
 ebooklib==0.18
 beautifulsoup4==4.12.3
